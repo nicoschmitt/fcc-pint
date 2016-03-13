@@ -22,19 +22,9 @@
                 controller: "meCtrl",
                 controllerAs: "vm",
 
-            }).when("/Other", {
-                templateUrl: "/app/views/other-books.html",
-                controller: "otherBooksCtrl",
-                controllerAs: "vm",
-                
             }).when("/Add", {
-                templateUrl: "/app/views/add-book.html",
-                controller: "addBookCtrl",
-                controllerAs: "vm",
-                                
-            }).when("/Trades", {
-                templateUrl: "/app/views/trades.html",
-                controller: "tradesCtrl",
+                templateUrl: "/app/views/add.html",
+                controller: "addCtrl",
                 controllerAs: "vm",
                 
             }).otherwise({ redirectTo: "/Home" });

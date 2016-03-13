@@ -1,7 +1,8 @@
 (function(){
-    var jwt = require('jwt-simple');
+    var jwt     = require('jwt-simple');
+    var moment  = require("moment");
         
-    function ensureAuthenticated(req, res, next) {
+    module.exports.ensureAuthenticated = function(req, res, next) {
         if (!req.header('Authorization')) {
             return res.status(401).send({ message: 'Unauthorize' });
         }
@@ -19,8 +20,9 @@
         if (payload.exp <= moment().unix()) {
             return res.status(401).send({ message: 'Token has expired' });
         }
+
         req.user = payload.sub;
         next();
     }
-
+   
 }());

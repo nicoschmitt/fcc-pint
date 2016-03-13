@@ -17,7 +17,10 @@
                 console.log(resp.data);
             };
             
-            
+            $http.get("/api/pin").then(function(resp) {
+                vm.loading = false;
+                vm.images = resp.data;
+            }, handleError);
         }
     ]);
   

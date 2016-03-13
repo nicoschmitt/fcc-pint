@@ -20,7 +20,9 @@
     "jquery": "^2.2.1",
     "snackbarjs": "^1.1.0",
     "moment": "^2.12.0",
-    "satellizer": "^0.14.0"
+    "satellizer": "^0.14.0",
+    "masonry": "^4.0.0",
+    "angular-masonry": "^0.16.0"
   },
   "overrides": {
     "angular-material": {
@@ -40,11 +42,14 @@
         "dist/js/ripples.min.js"
       ]
     },
-    "moment": {
-      "main": "min/moment.min.js"
+    "bootstrap-sass": {
+        "main": []
     },
     "satellizer": {
-        "main": "satellizer.min.js"
+      "main": "satellizer.min.js"
+    },
+    "masonry": {
+      "main": "dist/masonry.pkgd.min.js"
     }
   }
 }
