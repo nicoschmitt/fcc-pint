@@ -1,0 +1,69 @@
+$black: #333;
+$white: #eee;
+
+html {
+    background-color: $black;
+};
+
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $black;
+};
+
+.pointer {
+    cursor: pointer;
+}
+
+#message {
+    margin-top: 30px;
+} 
+
+.me {
+    margin-top: 20px;
+};
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+};
+
+.md-danger {
+    background-color: #d9534f !important;
+}
+
+.md-success {
+    background-color: #5cb85c !important;
+}
+
+// ---- Login ----
+
+.loginform {
+    margin-bottom: 30px;
+    h2 {
+        margin-bottom: 25px;
+    }
+}
+
+.btn-twitter {
+  color: $white !important;
+  background-color: #00aced !important;
+  border: 1px solid #009fdb !important;
+  
+  &:hover, &:focus {
+    color: $white !important;
+    background-color: #0090c7 !important;
+  }
+}
+
+.btn-github  {
+  color: $white !important;
+  background-color: #444 !important;
+  border: 1px solid #3b3b3b !important;
+  
+  &:hover, &:focus {
+    color: $white !important;
+    background-color: #303030 !important;
+  }
+}
