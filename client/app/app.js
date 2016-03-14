@@ -2,7 +2,7 @@
 (function() {
     $.material.init();
     
-    var app = angular.module('myApp', [ 'ngRoute', "satellizer", "ngMaterial", "wu.masonry" ]);
+    var app = angular.module('myApp', [ 'ngRoute', "satellizer", "ngMaterial", "angularGrid" ]);
   
     app.config(["githubAppId", '$routeProvider','$httpProvider', '$authProvider',
         function (githubAppId, $routeProvider, $httpProvider, $authProvider) {

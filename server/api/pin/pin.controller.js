@@ -4,7 +4,6 @@
     var User = require("../../auth/user.model");
     
     module.exports.recent = function(req, res) {
-        console.log("Recent");
         Pin.find().sort({when: 'desc'}).limit(30).exec(function(err, pins) {
             if (err) res.status(500).send(err);
             else res.json(pins);

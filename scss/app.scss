@@ -68,13 +68,37 @@ body {
   }
 }
 
+// ---- Add pin ----
+
 .add-form {
     margin-bottom: 30px;
 }
 
-.masonry-brick {
-    font-size: 120%;
-    img {
+// ---- Grid ----
+
+.grid {
+    list-style: none;
+    background: $white;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: all 0.6s ease-out; 
+    
+    .grid-img {
         width: 100%;
+        vertical-align: middle;
+        background-color: #fff;
+        opacity: 0; 
+        visibility: hidden;
+    }
+    
+    .grid-img.img-loaded {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .img-info {
+        padding: 10px;
     }
 }
+

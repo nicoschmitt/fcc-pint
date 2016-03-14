@@ -19,6 +19,7 @@
             };
             
             $http.get("/api/pin").then(function(resp) {
+                console.log(resp.data.length + " images.");
                 vm.loading = false;
                 vm.images = resp.data.map(i => {
                    i.when = moment(i.when).fromNow();
