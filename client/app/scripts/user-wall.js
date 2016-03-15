@@ -12,6 +12,7 @@
             vm.loading = true;
             vm.message = "";
             vm.images = [];
+            vm.editMode = vm.isAuthenticated() && ($rootScope.currentUser._id == $routeParams.userid);
             
             vm.imgLoaded = {
                 fail: function(instance) {
@@ -25,7 +26,7 @@
                         if (vm.images[i]._id == image._id) vm.images.splice(i, 1);
                     }
                 }, handleError);
-            }
+            };
             
             var handleError = function(resp) {
                 vm.loading = false;

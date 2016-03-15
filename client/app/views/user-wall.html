@@ -19,7 +19,7 @@
                 <div class="img-info">
                     <b>{{image.title}}</b> by <a href="#/User/{{image.createdBy}}">{{image.author}}</a>, {{image.when}}
                 </div>
-                <div class="img-action">
+                <div class="img-action" ng-show="vm.editMode">
                     <md-button class="md-danger md-fab md-mini" aria-label="give up" ng-click="vm.remove(image)">
                         <i class="fa fa-trash"></i>
                         <md-tooltip md-direction="left">delete</md-tooltip>

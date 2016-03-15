@@ -33,9 +33,17 @@
     };
     
     module.exports.remove = function(req, res) {
-        Pin.findByIdAndRemove(req.params.pin, function(err, doc){
+        Pin.findById(req.params.pin, function(err, pin){
             if (err) return res.status(500).send(err);
-            else return res.json({ status: "ok" });
+            
+            if (pin.createdBy == req.user) {
+                pin.remove(function(err, doc) {
+                    if (err) return res.status(500).send(err);
+                    else return res.json({ status: "ok" });
+                });
+            } else {
+                return res.send(401).send("unauthorized");
+            }
         });
     };
     
