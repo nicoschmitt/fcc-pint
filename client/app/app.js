@@ -2,7 +2,7 @@
 (function() {
     $.material.init();
     
-    var app = angular.module('myApp', [ 'ngRoute', "satellizer", "ngMaterial", "angularGrid" ]);
+    var app = angular.module('myApp', [ 'ngRoute', "satellizer", "ngMaterial", "angularGrid", "angular-images-loaded" ]);
   
     app.config(["githubAppId", '$routeProvider','$httpProvider', '$authProvider',
         function (githubAppId, $routeProvider, $httpProvider, $authProvider) {
@@ -25,6 +25,11 @@
             }).when("/Add", {
                 templateUrl: "/app/views/add.html",
                 controller: "addCtrl",
+                controllerAs: "vm",
+                
+            }).when("/User/:userid", {
+                templateUrl: "/app/views/user-wall.html",
+                controller: "userWallCtrl",
                 controllerAs: "vm",
                 
             }).otherwise({ redirectTo: "/Home" });

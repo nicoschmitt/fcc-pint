@@ -3,8 +3,18 @@
     var Pin  = require('./pin.model');
     var User = require("../../auth/user.model");
     
+    var maxWall = 30;
+    
     module.exports.recent = function(req, res) {
-        Pin.find().sort({when: 'desc'}).limit(30).exec(function(err, pins) {
+        Pin.find().sort({when: 'desc'}).limit(maxWall).exec(function(err, pins) {
+            if (err) res.status(500).send(err);
+            else res.json(pins);
+        });
+    };
+    
+    module.exports.userwall = function(req, res) {
+        console.log("Wall for user " + req.params.userid);
+        Pin.find({ createdBy: req.params.userid }).sort({when: 'desc'}).limit(maxWall).exec(function(err, pins) {
             if (err) res.status(500).send(err);
             else res.json(pins);
         });

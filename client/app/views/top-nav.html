@@ -12,6 +12,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ng-class="{ active: nav.isActive('/Home')}"><a href="#/Home">Home</a></li>
+        <li ng-class="{ active: nav.isActive('/User/me')}"ng-show="nav.isAuthenticated()"><a href="#/User/me">My wall</a></li>
         <li ng-class="{ active: nav.isActive('/Add')}"ng-show="nav.isAuthenticated()"><a href="#/Add">Add</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

@@ -7,6 +7,7 @@
     var controller = require('./pin.controller');
   
     router.get('/', controller.recent);
+    router.get('/:userid', controller.userwall);
     router.post('/', ensureAuthenticated, controller.create);
     router.delete('/:pin', ensureAuthenticated, controller.remove);
 

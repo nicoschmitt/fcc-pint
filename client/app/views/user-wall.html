@@ -14,10 +14,16 @@
     <h4 ng-hide="vm.loading || vm.images.length">No recent images.</h4>
     <div layout-fill ng-hide="vm.loading">
         <ul class="dynamic-grid" angular-grid="vm.images" ag-grid-width="300" ag-id="gallery" ng-hide="vm.loading">
-            <li data-ng-repeat="image in vm.images" class="grid"  images-loaded="vm.imgLoaded">
+            <li data-ng-repeat="image in vm.images" class="grid" images-loaded="vm.imgLoaded">
                 <img ng-src="{{image.url}}" alt="{{image.title}}" class="grid-img" />
                 <div class="img-info">
                     <b>{{image.title}}</b> by <a href="#/User/{{image.createdBy}}">{{image.author}}</a>, {{image.when}}
+                </div>
+                <div class="img-action">
+                    <md-button class="md-danger md-fab md-mini" aria-label="give up" ng-click="vm.remove(image)">
+                        <i class="fa fa-trash"></i>
+                        <md-tooltip md-direction="left">delete</md-tooltip>
+                    </md-button>
                 </div>
             </li>
         </ul>
