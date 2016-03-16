@@ -14,7 +14,7 @@
         {
             "taskName": "watch",
             "isBuildCommand": true,
-            "showOutput": "silent",
+            "showOutput": "always",
             "isWatching": true
         }
     ]

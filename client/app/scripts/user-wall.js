@@ -1,9 +1,7 @@
 (function() {
-    
     var app = angular.module('myApp');
- 
- 
-     app.controller('userWallCtrl', ["$rootScope", '$http', "$auth", "$routeParams",
+  
+    app.controller('userWallCtrl', ["$rootScope", '$http', "$auth", "$routeParams",
         function ($rootScope, $http, $auth, $routeParams) {
             var vm = this;
             

@@ -5,24 +5,38 @@ var del         = require('del');
 var concat      = require("gulp-concat");
 var uglify      = require("gulp-uglify");
 var rename      = require("gulp-rename");
-var htmlbuild   = require("gulp-htmlbuild");
 var sass        = require("gulp-sass");
 var cssnano     = require("gulp-cssnano");
+var babel       = require('gulp-babel');
 
 // Auto
 
 gulp.task('sass', function() {
-    gulp.src('client/css/*.scss')
-        .pipe(sass())
-        .pipe(cssnano())
-        .pipe(gulp.dest(function(f) {
-            return f.base;
-        }))
+    return gulp.src('client/css/*.scss')
+                .pipe(sass())
+                .pipe(cssnano())
+                .pipe(gulp.dest(function(f) {
+                    return f.base;
+                }));
 });
 
-gulp.task("watch", function() {
+gulp.task("watch-sass", function() {
    gulp.watch('client/css/*.scss', ['sass']); 
 });
+
+gulp.task("app-js", function() {
+    return gulp.src(["client/app/app.js", "client/app/scripts/*.js"])
+               .pipe(concat("myapp.min.js"))
+               .pipe(babel({ presets: ['es2015'] }))
+               .pipe(uglify().on("error", gutil.log))
+               .pipe(gulp.dest("client/app"));
+});
+
+gulp.task("watch-js", function() {
+   gulp.watch(["client/app/app.js", 'client/app/scripts/*.js'], ['app-js']); 
+});
+
+gulp.task("watch", [ "watch-sass", "watch-js" ]);
 
 // Dev
 
@@ -51,23 +65,6 @@ gulp.task('bower-css', function() {
 
 gulp.task('bower-min-css', function() {
     return gulp.src(bowerMain('css','min.css').minified)
-               .pipe(gulp.dest("client/lib"));
-});
-
-// Production
-
-gulp.task("app-script", function() {
-    return gulp.src("client/app/scripts/*.js")
-               .pipe(concat("myapp.min.js"))
-               .pipe(uglify())
-               .pipe(gulp.dest("client/lib"));
-});
-
-gulp.task("replace-js", function() {
-    return gulp.src("client/index.html")
-               .pipe(htmlbuild({
-                   
-               }))
                .pipe(gulp.dest("client/lib"));
 });
 
