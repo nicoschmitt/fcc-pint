@@ -12,7 +12,6 @@
     "moment": "^2.11.2",
     "mongodb": "^2.1.7",
     "mongoose": "^4.4.6",
-    "node-sass-middleware": "^0.9.7",
     "querystring": "^0.2.0",
     "request": "^2.69.0",
     "shortid": "^2.2.4"
@@ -23,7 +22,10 @@
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-htmlbuild": "^0.4.1",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7"
   }
